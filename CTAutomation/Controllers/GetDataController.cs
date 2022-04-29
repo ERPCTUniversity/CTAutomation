@@ -17,7 +17,7 @@ namespace CTAutomation.Controllers
                 var data = entities.Automations.Where(i => i.RoomNo.Equals(roomno)).FirstOrDefault();
                 if (data != null)
                 {
-                    return true;
+                    return data.Value;
                 }
                 else
                 {

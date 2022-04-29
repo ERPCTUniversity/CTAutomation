@@ -20,19 +20,17 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CTAutomationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CTAutomationEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Automations" EntityType="CTAutomationModel.Automation" />
+        </EntityContainer>
         <EntityType Name="Automation">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="RoomNo" />
-            <PropertyRef Name="Value" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RoomNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoomNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Value" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="CTAutomationEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Automations" EntityType="Self.Automation" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -42,9 +40,9 @@
           <EntitySetMapping Name="Automations">
             <EntityTypeMapping TypeName="CTAutomationModel.Automation">
               <MappingFragment StoreEntitySet="Automations">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
