@@ -10,14 +10,14 @@ namespace CTAutomation.Controllers
 {
     public class GetDataController : ApiController
     {
-        public bool GetOnOffData(string roomno)
+        public object GetOnOffData(string deviceId)
         {
             using (CTAutomationEntities1 entities = new CTAutomationEntities1())
             {
-                var data = entities.Automations.Where(i => i.RoomNo.Equals(roomno)).FirstOrDefault();
+                var data = entities.Automations.Where(i => i.DeviceId.ToString().Equals(deviceId)).ToList();
                 if (data != null)
                 {
-                    return data.Value;
+                    return data;
                 }
                 else
                 {
