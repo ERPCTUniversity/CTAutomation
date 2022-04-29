@@ -17,5 +17,6 @@ namespace CTAutomation.Models
         public int id { get; set; }
         public string RoomNo { get; set; }
         public bool Value { get; set; }
+        public Nullable<int> DeviceId { get; set; }
     }
 }
